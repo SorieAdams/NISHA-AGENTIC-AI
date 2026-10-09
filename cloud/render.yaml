@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: nisha-dashboard
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python dashboard/server.py
+    healthCheckPath: /health
+    envVars:
+      - key: NISHA_CLOUD_MODE
+        value: "true"
+      - key: PORT
+        fromService:
+          type: web
+          name: nisha-dashboard
+          property: port

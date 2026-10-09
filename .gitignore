@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Environment
+.env
+.env.*
+venv/
+env/
+.venv/
+
+# NISHA sensitive files — NEVER commit
+config/api_keys.json
+memory/long_term.json
+memory/rag_store.json
+memory/vault/.nisha_vault.enc
+memory/vault/.salt
+memory/audit/
+memory/career/pipeline.json
+memory/career/drafts/
+memory/daily_logs/
+ideas/
+memory/issues/
+
+# Caches
+*.log
+error.txt
+output.txt
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp

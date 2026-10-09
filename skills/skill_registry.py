@@ -1,61 +1,82 @@
-# skills/skill_registry.py
-# Registry of all declared skills
+"""
+skill_registry.py — NISHA Skill Registry
+All skills and their tool mappings, triggers, and handlers.
+"""
+from skills.skills import coding, research, productivity, creative, salone
 
 SKILL_REGISTRY = {
     "system_control": {
-        "tools": ["computer_settings", "computer_control", "open_app", "desktop_control"],
-        "triggers": ["open", "close", "volume up", "shutdown"]
+        "tools": ["open_app", "computer_settings", "computer_control", "desktop_control"],
+        "triggers": ["open", "close", "volume", "brightness", "wifi", "shutdown", "launch"],
+        "handler": None,
     },
     "web_intelligence": {
         "tools": ["web_search", "browser_control", "flight_finder", "weather_report"],
-        "triggers": ["search", "find", "what is", "look up"]
+        "triggers": ["search", "find", "what is", "who is", "price", "news", "look up", "research"],
+        "handler": research.handle,
     },
     "media": {
         "tools": ["youtube_video", "file_processor"],
-        "triggers": ["play", "watch", "pause", "summarize video"]
+        "triggers": ["play", "youtube", "watch", "video", "music", "pause"],
+        "handler": None,
     },
     "communication": {
         "tools": ["send_message", "reminder"],
-        "triggers": ["send", "message", "remind me", "tell X"]
+        "triggers": ["send", "message", "whatsapp", "telegram", "remind", "tell"],
+        "handler": None,
     },
     "vision": {
         "tools": ["screen_process", "close_camera"],
-        "triggers": ["what do you see", "look at screen", "camera"]
+        "triggers": ["screen", "camera", "what do you see", "look at"],
+        "handler": None,
     },
     "file_ops": {
         "tools": ["file_controller", "file_processor", "desktop_control"],
-        "triggers": ["open file", "read", "organize", "delete"]
+        "triggers": ["file", "folder", "document", "read", "delete", "organize"],
+        "handler": productivity.handle,
     },
     "coding": {
         "tools": ["code_helper", "dev_agent", "browser_control"],
-        "triggers": ["write code", "build", "run", "fix", "explain"]
+        "triggers": ["code", "build", "script", "program", "debug", "fix error", "develop"],
+        "handler": coding.handle,
     },
     "intelligence": {
         "tools": ["web_search", "file_processor", "save_memory"],
-        "triggers": ["research", "analyze", "summarize", "compare"]
+        "triggers": ["analyze", "summarize", "compare", "report", "deep research"],
+        "handler": research.handle,
     },
     "hardware": {
         "tools": ["system_status", "system_monitor"],
-        "triggers": ["CPU", "RAM", "temperature", "how's my computer"]
+        "triggers": ["cpu", "ram", "memory", "temperature", "battery", "performance"],
+        "handler": None,
     },
     "memory_ops": {
         "tools": ["save_memory", "load_memory"],
-        "triggers": ["remember", "forget", "what do you know about"]
+        "triggers": ["remember", "forget", "what do you know about"],
+        "handler": None,
     },
-    "saloone": {
+    "salone": {
         "tools": ["web_search", "weather_report"],
-        "triggers": ["local Sierra Leone news", "Krio language support"]
+        "triggers": ["sierra leone", "freetown", "krio", "salone", "local news"],
+        "handler": salone.handle,
     },
     "games": {
         "tools": ["game_updater"],
-        "triggers": ["Steam", "Epic", "game update", "install game"]
-    }
+        "triggers": ["steam", "epic", "game update", "install game"],
+        "handler": None,
+    },
+    "agents": {
+        "tools": ["scout", "asha", "mira", "operator"],
+        "triggers": ["scout", "asha", "mira", "operator", "research agent", "code agent",
+                     "career agent", "validate idea", "research idea"],
+        "handler": None,
+    },
 }
 
-def get_skill_tools(skill_name):
-    """Return the list of tools for a given skill."""
-    return SKILL_REGISTRY.get(skill_name, {}).get("tools", [])
 
-def get_skill_triggers(skill_name):
-    """Return the list of triggers for a given skill."""
-    return SKILL_REGISTRY.get(skill_name, {}).get("triggers", [])
+def get_skill(name: str) -> dict:
+    return SKILL_REGISTRY.get(name, SKILL_REGISTRY["web_intelligence"])
+
+
+def get_all_skills() -> dict:
+    return SKILL_REGISTRY

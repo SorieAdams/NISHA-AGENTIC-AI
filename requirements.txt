@@ -1,29 +1,42 @@
+# ── Core ──────────────────────────────────────────────────────────────
 PyQt6
 sounddevice
 google-genai
-google-generativeai
-pillow
+
+# ── Web ───────────────────────────────────────────────────────────────
 requests
-beautifulsoup4
 duckduckgo-search
+
+# ── Browser automation ────────────────────────────────────────────────
 playwright
+
+# ── File processing ───────────────────────────────────────────────────
+pillow
+pypdf2
+pdfplumber
+python-docx
+openpyxl
+moviepy
+pydub
+patool
+
+# ── System control ────────────────────────────────────────────────────
 pyautogui
-pyperclip
-pygetwindow
-opencv-python
-numpy
-mss
 psutil
-send2trash
-youtube-transcript-api
-python-pptx
+pynput
+screen-brightness-control
+
+# ── Remote dashboard ──────────────────────────────────────────────────
 fastapi
 uvicorn[standard]
 cryptography
-python-multipart
-comtypes; sys_platform == "win32"
-pycaw; sys_platform == "win32"
-win10toast; sys_platform == "win32"
-pywinauto; sys_platform == "win32"
-pywin32; sys_platform == "win32"
-qrcode[pil]
+qrcode
+
+# ── Agents & Orchestration ────────────────────────────────────────────
+httpx
+
+# ── Local LLM (offline fallback) ─────────────────────────────────────
+# ollama — install separately: https://ollama.ai
+
+# ── Dev & testing ─────────────────────────────────────────────────────
+pytest
