@@ -9,12 +9,18 @@ import datetime
 import subprocess
 from pathlib import Path
 from agents.base_agent import BaseAgent
+from core.brain_router import get_brain
+from core.voice_manager import speak
+
 
 
 class Operator(BaseAgent):
     name = "Operator"
     mission = "Perform approved visible computer workflows. Every action is logged with screenshot evidence."
     authority_level = "gated"
+
+    def _get_brain(self):
+        return get_brain("operator")
 
     # ------------------------------------------------------------------ #
     #  Deviation registry (MAYA-inspired governance)                      #

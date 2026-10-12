@@ -33,5 +33,8 @@
   "language": "en",
   "city": "Freetown",
   "os_system": "windows",
-  "ui_color": "#00e2ff"
+  "ui_color": "#00e2ff",
+  "openrouter_api_key": "",
+  "cerebras_api_key": "",
+  "llm_provider": "gemini"
 }

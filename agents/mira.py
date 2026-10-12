@@ -7,12 +7,18 @@ import json
 import datetime
 from pathlib import Path
 from agents.base_agent import BaseAgent
+from core.brain_router import get_brain
+from core.voice_manager import speak
+
 
 
 class Mira(BaseAgent):
     name = "Mira"
     mission = "Career/admin operations — applications, resume, opportunity tracker, follow-ups."
-    authority_level = "read_only"   # drafts only; sends require approval
+    authority_level = "read_only"
+
+    def _get_brain(self):
+        return get_brain("mira")   # drafts only; sends require approval
 
     OPPORTUNITY_SCHEMA = {
         "id": "",

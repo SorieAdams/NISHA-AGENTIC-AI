@@ -14,6 +14,9 @@ from agents.scout import Scout
 from agents.asha import Asha
 from agents.mira import Mira
 from agents.operator import Operator
+from core.brain_router import get_brain, get_router
+from core.voice_manager import get_voice_manager
+
 
 
 def get_base_dir():

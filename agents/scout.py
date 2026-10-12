@@ -4,6 +4,9 @@ Mission: Find real problems, competitors, target users, opportunities.
 Authority: Public web research only. No personal data shared externally.
 """
 from agents.base_agent import BaseAgent
+from core.brain_router import get_brain
+from core.voice_manager import speak
+
 from actions.web_search import web_search
 from pathlib import Path
 import json, datetime, sys
@@ -20,6 +23,9 @@ class Scout(BaseAgent):
     name = "Scout"
     mission = "Find real problems, competitors, target users, and opportunities via public web research."
     authority_level = "read_only"
+
+    def _get_brain(self):
+        return get_brain("scout")
 
     BRIEF_TEMPLATE = {
         "problem": "",

@@ -1,0 +1,17 @@
+{
+  "_comment": "NISHA Voice Assignments — October 2026. Provider: Gemini 3.8 Flash TTS (free, 130 languages).",
+  "_version": "2026.10",
+  "_provider": "gemini-3.8-flash-tts",
+  "_fallback_provider": "gemini-3.8-flash-lite-tts",
+  "_api_key_env": "GEMINI_API_KEY",
+  "agents": {
+    "nisha":    { "voice": "Sulafat",     "style": "Warm",    "fallback_voice": "Aoede",        "persona_prompt": "Speak calmly and warmly, like a deeply trusted advisor and chief of staff. Never rushed, never harsh. Composed authority with genuine warmth.", "pitch": "medium-low", "pace": "measured" },
+    "scout":    { "voice": "Erinome",     "style": "Clear",   "fallback_voice": "Charon",       "persona_prompt": "Speak clearly and factually. Deliver research findings with precision and no filler. Like a field reporter calling in live.", "pitch": "medium", "pace": "crisp" },
+    "asha":     { "voice": "Pulcherrima", "style": "Forward", "fallback_voice": "Kore",         "persona_prompt": "Speak confidently and directly. You know exactly what you built. No hesitation. Senior engineer energy.", "pitch": "medium", "pace": "confident" },
+    "mira":     { "voice": "Despina",     "style": "Smooth",  "fallback_voice": "Vindemiatrix", "persona_prompt": "Speak smoothly and professionally, like a polished executive assistant reading a boardroom brief.", "pitch": "medium", "pace": "professional" },
+    "operator": { "voice": "Schedar",     "style": "Even",    "fallback_voice": "Alnilam",      "persona_prompt": "Speak with flat, even, measured precision. Mission control cadence. No emotion spikes.", "pitch": "medium-low", "pace": "steady" }
+  },
+  "tts_settings": { "model": "gemini-3.8-flash-tts", "fallback_model": "gemini-3.8-flash-lite-tts", "sample_rate": 24000, "encoding": "LINEAR16", "language": "en-US", "auto_detect_language": true },
+  "voice_design": { "enabled": false, "note": "Set enabled=true to use custom Voice Design personas via POST /v1beta/voices." },
+  "elevenlabs_upgrade": { "enabled": false, "note": "ElevenLabs Eleven v4 available via OpenRouter at $0.08/1M chars.", "model": "elevenlabs/eleven-v4" }
+}

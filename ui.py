@@ -1,3 +1,12 @@
+# ── NISHA UI REDIRECT ──────────────────────────────────
+# The new ZOEY-style UI lives in ui_nisha.py.
+# NishaUI is imported from there so main.py needs no changes.
+try:
+    from ui_nisha import NishaUI as NishaUI  # new ZOEY-style UI
+except ImportError:
+    pass  # fallback: old NishaUI defined below
+# ───────────────────────────────────────────────────────
+
 from __future__ import annotations
 
 import json

@@ -2,10 +2,15 @@
 PyQt6
 sounddevice
 google-genai
+google-generativeai
+
+# ── OpenAI-compatible clients (OpenRouter, NVIDIA NIM, Cerebras, Ollama) ──
+openai
 
 # ── Web ───────────────────────────────────────────────────────────────
 requests
 duckduckgo-search
+httpx
 
 # ── Browser automation ────────────────────────────────────────────────
 playwright
@@ -26,17 +31,27 @@ psutil
 pynput
 screen-brightness-control
 
+# ── TTS / STT ─────────────────────────────────────────────────────────
+edge-tts
+miniaudio
+numpy
+
 # ── Remote dashboard ──────────────────────────────────────────────────
 fastapi
 uvicorn[standard]
 cryptography
 qrcode
 
-# ── Agents & Orchestration ────────────────────────────────────────────
-httpx
+# ── Dev & testing ─────────────────────────────────────────────────────
+pytest
 
 # ── Local LLM (offline fallback) ─────────────────────────────────────
 # ollama — install separately: https://ollama.ai
+# After installing ollama, run: ollama pull qwen2.5:32b
 
-# ── Dev & testing ─────────────────────────────────────────────────────
-pytest
+# ── Optional: Kokoro offline TTS ─────────────────────────────────────
+# kokoro>=0.9
+# soundfile
+
+# ── Optional: faster-whisper STT ─────────────────────────────────────
+# faster-whisper

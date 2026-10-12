@@ -8,12 +8,18 @@ import json
 import datetime
 from pathlib import Path
 from agents.base_agent import BaseAgent
+from core.brain_router import get_brain
+from core.voice_manager import speak
+
 
 
 class Asha(BaseAgent):
     name = "Asha"
     mission = "Build, test, and maintain product code. Propose changes; never push without approval."
     authority_level = "sandbox"
+
+    def _get_brain(self):
+        return get_brain("asha")
 
     def run(self, task: str, context: dict = None) -> dict:
         context = context or {}
