@@ -1,0 +1,82 @@
+{
+  "_comment": "NISHA Voice Assignments — October 2026. Provider: Gemini 3.8 Flash TTS (free, 130 languages).",
+  "_version": "2026.10",
+  "_provider": "gemini-3.8-flash-tts",
+  "_fallback_provider": "gemini-3.8-flash-lite-tts",
+  "_api_key_env": "GEMINI_API_KEY",
+
+  "agents": {
+    "nisha": {
+      "voice": "Sulafat",
+      "style": "Warm",
+      "fallback_voice": "Aoede",
+      "second_fallback": "Achernar",
+      "persona_prompt": "Speak calmly and warmly, like a deeply trusted advisor and chief of staff. Never rushed, never harsh. Composed authority with genuine warmth underneath. You are steady.",
+      "pitch": "medium-low",
+      "pace": "measured",
+      "why": "Sulafat = warm star in Lyra constellation. Arabic name. Warm style. Calm, feminine, trusted."
+    },
+    "scout": {
+      "voice": "Erinome",
+      "style": "Clear",
+      "fallback_voice": "Charon",
+      "second_fallback": "Rasalgethi",
+      "persona_prompt": "Speak clearly and factually. Deliver research findings with precision and no filler. Like a field reporter calling in live. Direct, sharp, confident.",
+      "pitch": "medium",
+      "pace": "crisp",
+      "why": "Erinome = moon of Jupiter. Clear style. Sharp factual delivery perfect for research reporting."
+    },
+    "asha": {
+      "voice": "Pulcherrima",
+      "style": "Forward",
+      "fallback_voice": "Kore",
+      "second_fallback": "Despina",
+      "persona_prompt": "Speak confidently and directly. You know exactly what you built and why. No hesitation. Senior engineer energy — get to the point fast, explain clearly.",
+      "pitch": "medium",
+      "pace": "confident",
+      "why": "Pulcherrima = most beautiful star in Boötes. Latin. Forward style. Direct, confident, feminine. Matches Asha (hope/life in Swahili/Sanskrit)."
+    },
+    "mira": {
+      "voice": "Despina",
+      "style": "Smooth",
+      "fallback_voice": "Vindemiatrix",
+      "second_fallback": "Sulafat",
+      "persona_prompt": "Speak smoothly and professionally, like a polished executive assistant reading a boardroom brief. Measured cadence. Never alarming, always composed and clear.",
+      "pitch": "medium",
+      "pace": "professional",
+      "why": "Despina = graceful moon of Neptune. Smooth style. Polished and professional. Matches Mira (peace/admirable)."
+    },
+    "operator": {
+      "voice": "Schedar",
+      "style": "Even",
+      "fallback_voice": "Alnilam",
+      "second_fallback": "Erinome",
+      "persona_prompt": "Speak with flat, even, measured precision. Mission control cadence. No emotion spikes. Every word deliberate. Like a control room voice narrating system steps.",
+      "pitch": "medium-low",
+      "pace": "steady",
+      "why": "Schedar = alpha star of Cassiopeia. Even style. Flat, steady, precise. Perfect for workflow narration and system automation."
+    }
+  },
+
+  "tts_settings": {
+    "model": "gemini-3.8-flash-tts",
+    "fallback_model": "gemini-3.8-flash-lite-tts",
+    "sample_rate": 24000,
+    "encoding": "LINEAR16",
+    "language": "en-US",
+    "auto_detect_language": true
+  },
+
+  "voice_design": {
+    "enabled": false,
+    "note": "Set enabled=true to use custom Voice Design personas via POST /v1beta/voices. Requires Gemini API key with billing."
+  },
+
+  "elevenlabs_upgrade": {
+    "enabled": false,
+    "note": "ElevenLabs Eleven v4 available via OpenRouter at $0.08/1M chars (50% off promo Oct 2026). Enable for ultra-realistic voices.",
+    "nisha_upgrade_voice": "custom_clone",
+    "api_key_env": "OPENROUTER_API_KEY",
+    "model": "elevenlabs/eleven-v4"
+  }
+}

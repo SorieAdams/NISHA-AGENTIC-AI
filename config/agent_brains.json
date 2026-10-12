@@ -1,0 +1,248 @@
+{
+  "_comment": "NISHA Agent Brain Assignments — October 2026. Each agent has primary, fallback, local.",
+  "_version": "2026.10",
+
+  "agents": {
+    "nisha": {
+      "role": "Orchestrator — general intelligence, conversation, routing",
+      "primary": {
+        "provider": "google",
+        "model": "gemini-3.8-flash",
+        "base_url": "https://generativelanguage.googleapis.com/v1beta",
+        "api_key_env": "GEMINI_API_KEY",
+        "context_window": 1000000,
+        "modalities": ["text", "image", "video", "audio", "pdf"],
+        "tool_calling": true,
+        "free": true,
+        "daily_limit": 1500
+      },
+      "fallback": {
+        "provider": "openrouter",
+        "model": "thinkingmachines/inkling:free",
+        "base_url": "https://openrouter.ai/api/v1",
+        "api_key_env": "OPENROUTER_API_KEY",
+        "context_window": 1048576,
+        "modalities": ["text", "image", "audio"],
+        "tool_calling": true,
+        "free": true,
+        "daily_limit": 200
+      },
+      "local": {
+        "provider": "ollama",
+        "model": "qwen2.5:32b",
+        "base_url": "http://localhost:11434/v1",
+        "api_key_env": null,
+        "context_window": 32768,
+        "modalities": ["text"],
+        "tool_calling": true,
+        "free": true,
+        "daily_limit": null
+      }
+    },
+
+    "scout": {
+      "role": "Research & validation — web research, fact-checking, long-context analysis",
+      "primary": {
+        "provider": "openrouter",
+        "model": "thinkingmachines/inkling:free",
+        "base_url": "https://openrouter.ai/api/v1",
+        "api_key_env": "OPENROUTER_API_KEY",
+        "context_window": 1048576,
+        "modalities": ["text", "image", "audio"],
+        "tool_calling": true,
+        "free": true,
+        "daily_limit": 200,
+        "notes": "#1 ranked free model Oct 2026. 1M context perfect for deep research."
+      },
+      "fallback": {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "base_url": "https://openrouter.ai/api/v1",
+        "api_key_env": "OPENROUTER_API_KEY",
+        "context_window": 1000000,
+        "modalities": ["text"],
+        "tool_calling": true,
+        "free": true,
+        "daily_limit": 200,
+        "notes": "550B frontier reasoning. Also on NVIDIA NIM free."
+      },
+      "fallback_nim": {
+        "provider": "nvidia_nim",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b",
+        "base_url": "https://integrate.api.nvidia.com/v1",
+        "api_key_env": "NVIDIA_API_KEY",
+        "context_window": 1000000,
+        "modalities": ["text"],
+        "tool_calling": true,
+        "free": true,
+        "daily_limit": 1000
+      },
+      "local": {
+        "provider": "ollama",
+        "model": "llama3.2",
+        "base_url": "http://localhost:11434/v1",
+        "api_key_env": null,
+        "context_window": 131072,
+        "modalities": ["text"],
+        "tool_calling": false,
+        "free": true,
+        "daily_limit": null
+      }
+    },
+
+    "asha": {
+      "role": "Coding & GitHub — code writing, debugging, pull requests, sandboxed execution",
+      "primary": {
+        "provider": "openrouter",
+        "model": "poolside/laguna-s-2.1:free",
+        "base_url": "https://openrouter.ai/api/v1",
+        "api_key_env": "OPENROUTER_API_KEY",
+        "context_window": 262144,
+        "modalities": ["text"],
+        "tool_calling": true,
+        "free": true,
+        "daily_limit": 200,
+        "notes": "Best free coding model Oct 2026. 70.2% on Terminal-Bench 2.1."
+      },
+      "fallback": {
+        "provider": "nvidia_nim",
+        "model": "moonshotai/kimi-k3",
+        "base_url": "https://integrate.api.nvidia.com/v1",
+        "api_key_env": "NVIDIA_API_KEY",
+        "context_window": 131072,
+        "modalities": ["text"],
+        "tool_calling": true,
+        "free": true,
+        "daily_limit": 1000,
+        "notes": "Strong coding model on NVIDIA NIM free tier."
+      },
+      "local": {
+        "provider": "ollama",
+        "model": "qwen2.5:32b",
+        "base_url": "http://localhost:11434/v1",
+        "api_key_env": null,
+        "context_window": 32768,
+        "modalities": ["text"],
+        "tool_calling": true,
+        "free": true,
+        "daily_limit": null
+      }
+    },
+
+    "mira": {
+      "role": "Career & admin — drafts, emails, documents, professional tasks",
+      "primary": {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+        "base_url": "https://openrouter.ai/api/v1",
+        "api_key_env": "OPENROUTER_API_KEY",
+        "context_window": 1000000,
+        "modalities": ["text"],
+        "tool_calling": true,
+        "free": true,
+        "daily_limit": 200,
+        "notes": "550B frontier brain for professional writing and reasoning."
+      },
+      "fallback": {
+        "provider": "google",
+        "model": "gemini-3.6-flash",
+        "base_url": "https://generativelanguage.googleapis.com/v1beta",
+        "api_key_env": "GEMINI_API_KEY",
+        "context_window": 1000000,
+        "modalities": ["text", "image", "video", "audio"],
+        "tool_calling": true,
+        "free": true,
+        "daily_limit": 1500
+      },
+      "local": {
+        "provider": "ollama",
+        "model": "mistral:7b",
+        "base_url": "http://localhost:11434/v1",
+        "api_key_env": null,
+        "context_window": 32768,
+        "modalities": ["text"],
+        "tool_calling": false,
+        "free": true,
+        "daily_limit": null
+      }
+    },
+
+    "operator": {
+      "role": "Computer & workflow — UI automation, screen understanding, step-by-step execution",
+      "primary": {
+        "provider": "openrouter",
+        "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+        "base_url": "https://openrouter.ai/api/v1",
+        "api_key_env": "OPENROUTER_API_KEY",
+        "context_window": 256000,
+        "modalities": ["text", "audio", "image", "video"],
+        "tool_calling": true,
+        "free": true,
+        "daily_limit": 200,
+        "notes": "ONLY free model with text+audio+image+VIDEO. Perfect for screen understanding."
+      },
+      "fallback": {
+        "provider": "google",
+        "model": "gemini-3.8-flash",
+        "base_url": "https://generativelanguage.googleapis.com/v1beta",
+        "api_key_env": "GEMINI_API_KEY",
+        "context_window": 1000000,
+        "modalities": ["text", "image", "video", "audio", "pdf"],
+        "tool_calling": true,
+        "free": true,
+        "daily_limit": 1500
+      },
+      "local": {
+        "provider": "ollama",
+        "model": "phi3:medium",
+        "base_url": "http://localhost:11434/v1",
+        "api_key_env": null,
+        "context_window": 131072,
+        "modalities": ["text"],
+        "tool_calling": false,
+        "free": true,
+        "daily_limit": null
+      }
+    }
+  },
+
+  "special": {
+    "voice_live": {
+      "primary": "gemini-3.8-live",
+      "fallback": "gemini-3.8-live-extended-thinking",
+      "provider": "google",
+      "api_key_env": "GEMINI_API_KEY"
+    },
+    "tts": {
+      "primary": "gemini-3.8-flash-tts",
+      "fallback": "gemini-3.8-flash-lite-tts",
+      "provider": "google",
+      "api_key_env": "GEMINI_API_KEY"
+    },
+    "stt": {
+      "primary": "gemini-3.5-transcribe",
+      "fallback": "whisper-large-v3",
+      "fallback_provider": "groq",
+      "provider": "google",
+      "api_key_env": "GEMINI_API_KEY"
+    },
+    "speed_burst": {
+      "provider": "cerebras",
+      "model": "gpt-oss-120b",
+      "base_url": "https://api.cerebras.ai/v1",
+      "api_key_env": "CEREBRAS_API_KEY",
+      "speed_tps": 3000,
+      "context_free": 65536,
+      "notes": "World's fastest inference. Use for speed-critical short tasks."
+    }
+  },
+
+  "routing_rules": {
+    "privacy_required": "local",
+    "speed_critical": "cerebras",
+    "video_input": ["nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free", "gemini-3.8-flash"],
+    "long_context_gt_262k": ["thinkingmachines/inkling:free", "nvidia/nemotron-3-ultra-550b-a55b:free", "gemini-3.8-flash"],
+    "coding": ["poolside/laguna-s-2.1:free", "moonshotai/kimi-k3", "qwen2.5:32b"],
+    "limit_rotation_order": ["openrouter", "nvidia_nim", "google", "cerebras", "local"]
+  }
+}
